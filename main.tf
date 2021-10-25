@@ -103,12 +103,6 @@ resource "kubernetes_service" "default" {
       target_port = "${var.secondary_port}"
     }
 
-     port {
-      name        = "temp-port"
-      port        = "22"
-      target_port = "22"
-    }
-    
     load_balancer_ip = "${var.load_balancer_ip}"
     load_balancer_source_ranges = "${var.load_balancer_source_ranges}"
 
