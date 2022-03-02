@@ -82,6 +82,7 @@ resource "kubernetes_deployment" "default" {
           persistent_volume_claim {
           claim_name = "${var.tertiary_pvc_claim_name}"
           }
+        }
       }
     }
   }
