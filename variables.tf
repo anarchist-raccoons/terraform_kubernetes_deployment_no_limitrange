@@ -27,6 +27,13 @@ variable "secondary_sub_path" {
   default = ""
 }
 
+variable "tertiary_mount_path" {
+  default = ""
+}
+variable "tertiary_volume_name" {
+  default = ""
+}
+
 variable "image_pull_secrets" {
 }
 
