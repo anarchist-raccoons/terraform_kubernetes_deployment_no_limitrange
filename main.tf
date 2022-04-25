@@ -38,7 +38,7 @@ resource "kubernetes_deployment" "default" {
           name = "${var.image_pull_secrets}"
         }
 
-        node_selector { "${var.node_selector_label}" }
+        node_selector { app_group = "${var.node_selector_label}" }
                 
         container {
           image = "${var.docker_image}"
