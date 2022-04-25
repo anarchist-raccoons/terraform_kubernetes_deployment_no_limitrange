@@ -39,7 +39,7 @@ resource "kubernetes_deployment" "default" {
         }
 
         node_selector { "${var.node_selector_label}" }
-                }
+                
         container {
           image = "${var.docker_image}"
           name = "${var.app_name}"
