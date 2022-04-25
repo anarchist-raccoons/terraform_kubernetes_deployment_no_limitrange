@@ -67,3 +67,7 @@ variable "service_type" {
 variable "load_balancer_ip" {
   default = ""
 }
+
+variable "node_selector_label" {
+  default = ""
+}
