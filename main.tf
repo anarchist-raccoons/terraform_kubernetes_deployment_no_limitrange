@@ -39,7 +39,7 @@ resource "kubernetes_deployment" "default" {
         }
         
        startup_probe = {
-         http_get {
+         http_get = {
            path = "/"
            port = 443
          }
