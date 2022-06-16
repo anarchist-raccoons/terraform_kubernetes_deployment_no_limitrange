@@ -71,7 +71,3 @@ variable "load_balancer_ip" {
 variable "node_selector_label" {
   default = ""
 }
-
-variable "fqdn" {
-  default = ""
-}
