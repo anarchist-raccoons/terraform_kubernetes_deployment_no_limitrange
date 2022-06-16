@@ -38,7 +38,7 @@ resource "kubernetes_deployment" "default" {
           name = "${var.image_pull_secrets}"
         }
         
-       startup_probe {
+       startup_probe = {
          http_get {
            path = "/"
            port = 443
