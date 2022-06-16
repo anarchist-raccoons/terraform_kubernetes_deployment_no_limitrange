@@ -38,9 +38,9 @@ resource "kubernetes_deployment" "default" {
           name = "${var.image_pull_secrets}"
         }
         
-        readiness_gate {
-          condition_type = "${var.fqdn}"
-        }
+#        readiness_gate {
+#          condition_type = "${var.fqdn}"
+#        }
         
         node_selector { app_group = "${var.node_selector_label}" }
                 
