@@ -27,6 +27,13 @@ variable "secondary_sub_path" {
   default = ""
 }
 
+variable "tertiary_mount_path" {
+  default = ""
+}
+variable "tertiary_volume_name" {
+  default = ""
+}
+
 variable "image_pull_secrets" {
 }
 
@@ -38,6 +45,9 @@ variable "resource_version" {
 
 variable "pvc_claim_name" {}
 variable "secondary_pvc_claim_name" {
+  default = ""
+  }
+variable "tertiary_pvc_claim_name" {
   default = ""
   }
 
@@ -55,5 +65,9 @@ variable "service_type" {
 }
 
 variable "load_balancer_ip" {
+  default = ""
+}
+
+variable "node_selector_label" {
   default = ""
 }

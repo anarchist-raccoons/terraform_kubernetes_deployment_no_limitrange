@@ -1,5 +1,4 @@
 provider "kubernetes" {
-  load_config_file = false
   host = var.host
   username = var.username
   password = var.password
@@ -37,7 +36,18 @@ resource "kubernetes_deployment" "default" {
         image_pull_secrets { 
           name = var.image_pull_secrets
         }
-
+        
+#       startup_probe {
+#         http_get = {
+#           path = "/"
+#           port = 443
+#         }
+#         initial_delay_seconds = 300
+#         period_seconds        = 30
+#       }
+        
+        node_selector = { app_group = "${var.node_selector_label}" }
+                
         container {
           image = var.docker_image
           name = var.app_name
@@ -57,6 +67,10 @@ resource "kubernetes_deployment" "default" {
             mount_path = var.secondary_mount_path
             sub_path = var.secondary_sub_path
           }
+#          volume_mount {
+#            name = "${var.tertiary_volume_name}"
+#            mount_path = "${var.tertiary_mount_path}"
+#          }
 
           command = var.command
         }
@@ -73,6 +87,12 @@ resource "kubernetes_deployment" "default" {
           claim_name = var.secondary_pvc_claim_name
           }
         }
+#        volume {
+#          name = "${var.tertiary_volume_name}"
+#          persistent_volume_claim {
+#          claim_name = "${var.tertiary_pvc_claim_name}"
+#          }
+#        }
       }
     }
   }
@@ -103,12 +123,6 @@ resource "kubernetes_service" "default" {
       target_port = var.secondary_port
     }
 
-     port {
-      name        = "temp-port"
-      port        = "22"
-      target_port = "22"
-    }
-    
     load_balancer_ip = var.load_balancer_ip
     load_balancer_source_ranges = var.load_balancer_source_ranges
 
