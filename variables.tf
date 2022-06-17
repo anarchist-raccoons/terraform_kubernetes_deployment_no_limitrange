@@ -32,7 +32,7 @@ variable "image_pull_secrets" {
 
 variable "resource_version" {
   description = "Unused variable, used to create a dependency sequence."
-  type = "list"
+  type = list
   default = []
 }
 
@@ -46,7 +46,7 @@ variable "replicas" {
 }
 
 variable "load_balancer_source_ranges" {
-  type = "list"
+  type = list
   default = []
 }
 
