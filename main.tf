@@ -46,7 +46,7 @@ resource "kubernetes_deployment" "default" {
 #         period_seconds        = 30
 #       }
         
-        node_selector = { app_group = "${var.node_selector_label}" }
+        node_selector = { app_group = var.node_selector_label }
                 
         container {
           image = var.docker_image
@@ -68,8 +68,8 @@ resource "kubernetes_deployment" "default" {
             sub_path = var.secondary_sub_path
           }
 #          volume_mount {
-#            name = "${var.tertiary_volume_name}"
-#            mount_path = "${var.tertiary_mount_path}"
+#            name = var.tertiary_volume_name
+#            mount_path = var.tertiary_mount_path
 #          }
 
           command = var.command
@@ -88,9 +88,9 @@ resource "kubernetes_deployment" "default" {
           }
         }
 #        volume {
-#          name = "${var.tertiary_volume_name}"
+#          name = var.tertiary_volume_name
 #          persistent_volume_claim {
-#          claim_name = "${var.tertiary_pvc_claim_name}"
+#          claim_name = var.tertiary_pvc_claim_name
 #          }
 #        }
       }
