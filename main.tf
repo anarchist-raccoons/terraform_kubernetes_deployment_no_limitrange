@@ -37,14 +37,6 @@ resource "kubernetes_deployment" "default" {
           name = var.image_pull_secrets
         }
         
-       startup_probe {
-         http_get = {
-           path = "/"
-           port = 443
-         }
-         initial_delay_seconds = 300
-         period_seconds        = 30
-       }
         
         node_selector = { app_group = var.node_selector_label }
                 
@@ -58,6 +50,15 @@ resource "kubernetes_deployment" "default" {
             }
           }
           
+          startup_probe {
+            http_get = {
+              path = "/"
+              port = 443
+            }
+            initial_delay_seconds = 300
+            period_seconds        = 30
+          }
+
           volume_mount {
             name = var.app_name
             mount_path = var.primary_mount_path
