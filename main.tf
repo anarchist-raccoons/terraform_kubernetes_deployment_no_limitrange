@@ -54,12 +54,11 @@ resource "kubernetes_deployment" "default" {
             http_get {
               path = "/"
               port = 443
+              http_header {
+                name  = "Host"
+                value = var.fqdn
+              }
             }
-            http_header {
-              name  = "Host"
-              value = var.fqdn
-            }
-
             initial_delay_seconds = 300
             period_seconds        = 30
             timeout_seconds       = 10
