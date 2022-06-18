@@ -52,6 +52,7 @@ resource "kubernetes_deployment" "default" {
           
           startup_probe {
             http_get {
+              host = var.fqdn
               path = "/"
               port = 443
               http_header {
