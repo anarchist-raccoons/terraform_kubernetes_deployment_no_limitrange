@@ -55,10 +55,30 @@ resource "kubernetes_deployment" "default" {
               path = "/"
               port = 443
             }
+            http_header {
+              name  = "Host"
+              value = var.fqdn
+            }
+
             initial_delay_seconds = 300
             period_seconds        = 30
             timeout_seconds       = 10
           }
+
+#          liveness_probe {
+#            http_get {
+#              path = "/"
+#              port = 80
+#
+#              http_header {
+#                name  = "X-Custom-Header"
+#                value = "Awesome"
+#              }
+#            }
+#
+#            initial_delay_seconds = 3
+#            period_seconds        = 3
+#          }
 
           volume_mount {
             name = var.app_name
