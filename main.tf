@@ -52,7 +52,7 @@ resource "kubernetes_deployment" "default" {
           
           startup_probe {
             http_get {
-              scheme = "https"
+              scheme = "HTTPS"
               host = var.fqdn
               path = "/"
               port = 443
