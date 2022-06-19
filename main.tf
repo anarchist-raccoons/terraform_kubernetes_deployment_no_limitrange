@@ -52,9 +52,10 @@ resource "kubernetes_deployment" "default" {
           
           startup_probe {
             http_get {
+              scheme = "https"
               host = var.fqdn
               path = "/"
-              port = 80
+              port = 443
             }
             initial_delay_seconds = 300
             period_seconds        = 30
