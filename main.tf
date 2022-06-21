@@ -60,6 +60,7 @@ resource "kubernetes_deployment" "default" {
             initial_delay_seconds = 300
             period_seconds        = 30
             timeout_seconds       = 30
+            failure_threshold     = 30
           }
 
 #          liveness_probe {
