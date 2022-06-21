@@ -59,7 +59,7 @@ resource "kubernetes_deployment" "default" {
             }
             initial_delay_seconds = 300
             period_seconds        = 30
-            timeout_seconds       = 10
+            timeout_seconds       = 30
           }
 
 #          liveness_probe {
