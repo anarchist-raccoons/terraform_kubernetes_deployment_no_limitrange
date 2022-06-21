@@ -50,33 +50,19 @@ resource "kubernetes_deployment" "default" {
             }
           }
           
-          startup_probe {
-            http_get {
-              scheme = "HTTPS"
-              host = var.fqdn
-              path = "/"
-              port = 443
-            }
-            initial_delay_seconds = 300
-            period_seconds        = 30
-            timeout_seconds       = 30
-            failure_threshold     = 30
-          }
-
-#          liveness_probe {
+#          startup_probe {
 #            http_get {
+#              scheme = "HTTPS"
+#              host = var.fqdn
 #              path = "/"
-#              port = 80
-#
-#              http_header {
-#                name  = "X-Custom-Header"
-#                value = "Awesome"
-#              }
+#              port = 443
 #            }
-#
-#            initial_delay_seconds = 3
-#            period_seconds        = 3
+#            initial_delay_seconds = 300
+#            period_seconds        = 30
+#            timeout_seconds       = 30
+#            failure_threshold     = 30
 #          }
+
 
           volume_mount {
             name = var.app_name
