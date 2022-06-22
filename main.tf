@@ -50,9 +50,9 @@ resource "kubernetes_deployment" "default" {
             }
           }
 
-          dynamic "startup" { 
+          dynamic "startup_probe" { 
             for_each = var.startup
-            startup_probe {
+            content {
               http_get {
                 scheme = "HTTPS"
                 host = var.fqdn
