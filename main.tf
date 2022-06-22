@@ -59,10 +59,10 @@ resource "kubernetes_deployment" "default" {
                 path = "/"
                 port = 443
               }
-              initial_delay_seconds = 360
-              period_seconds        = 60
-              timeout_seconds       = 30
-              failure_threshold     = 10
+              initial_delay_seconds = 90
+              period_seconds        = 30
+              timeout_seconds       = 15
+              failure_threshold     = 5
             }
           }
 
