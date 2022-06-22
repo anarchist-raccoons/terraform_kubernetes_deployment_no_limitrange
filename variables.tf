@@ -75,3 +75,9 @@ variable "node_selector_label" {
 variable "fqdn" {
   default = ""
 }
+
+
+variable "startup" {
+  default = 0
+}
+

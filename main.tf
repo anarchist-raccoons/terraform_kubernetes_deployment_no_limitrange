@@ -49,20 +49,22 @@ resource "kubernetes_deployment" "default" {
               name = var.env_from
             }
           }
-          
-          startup_probe {
-            http_get {
-              scheme = "HTTPS"
-              host = var.fqdn
-              path = "/"
-              port = 443
-            }
-            initial_delay_seconds = 360
-            period_seconds        = 60
-            timeout_seconds       = 30
-            failure_threshold     = 10
-          }
 
+          dynamic "startup" { 
+            for_each = var.startup
+            startup_probe {
+              http_get {
+                scheme = "HTTPS"
+                host = var.fqdn
+                path = "/"
+                port = 443
+              }
+              initial_delay_seconds = 360
+              period_seconds        = 60
+              timeout_seconds       = 30
+              failure_threshold     = 10
+            }
+          }
 
           volume_mount {
             name = var.app_name
