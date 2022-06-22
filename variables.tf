@@ -78,6 +78,6 @@ variable "fqdn" {
 
 variable "startup" {
   type    = bool
-  default = true
+  default = false
 }
 

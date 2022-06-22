@@ -51,7 +51,7 @@ resource "kubernetes_deployment" "default" {
           }
 
           dynamic "startup_probe" { 
-            for_each = var.startup ? [] : [1]
+            for_each = var.startup ? [1] : []
             content {
               http_get {
                 scheme = "HTTPS"
