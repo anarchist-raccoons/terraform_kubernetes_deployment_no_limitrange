@@ -19,6 +19,7 @@ variable "primary_mount_path" {
   default = ""
 }
 variable "primary_mount_ro" {
+  type    = bool
   default = false
 }
 
@@ -33,6 +34,7 @@ variable "secondary_sub_path" {
   default = ""
 }
 variable "secondary_mount_ro" {
+  type    = bool
   default = false
 }
 
@@ -43,6 +45,7 @@ variable "tertiary_volume_name" {
   default = ""
 }
 variable "tertiary_mount_ro" {
+  type    = bool
   default = false
 }
 
@@ -89,6 +92,16 @@ variable "fqdn" {
 }
 
 variable "startup" {
+  type    = bool
+  default = false
+}
+
+variable "secondary_mount" {
+  type    = bool
+  default = false
+}
+
+variable "tertiary_mount" {
   type    = bool
   default = false
 }
