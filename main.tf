@@ -69,15 +69,18 @@ resource "kubernetes_deployment" "default" {
           volume_mount {
             name = var.app_name
             mount_path = var.primary_mount_path
+            read_only = var.primary_mount_ro
           }
           volume_mount {
             name = var.secondary_volume_name
             mount_path = var.secondary_mount_path
             sub_path = var.secondary_sub_path
+            read_only = var.secondary_mount_ro
           }
           volume_mount {
             name = var.tertiary_volume_name
             mount_path = var.tertiary_mount_path
+            read_only = var.tertiary_mount_ro
           }
 
           command = var.command
