@@ -89,19 +89,22 @@ resource "kubernetes_deployment" "default" {
         volume {
           name = var.app_name
           persistent_volume_claim {
-          claim_name = var.pvc_claim_name
+            claim_name = var.pvc_claim_name
+            read_only = var.primary_mount_ro
           }
         }
         volume {
           name = var.secondary_volume_name
           persistent_volume_claim {
-          claim_name = var.secondary_pvc_claim_name
+            claim_name = var.secondary_pvc_claim_name
+            read_only = var.secondary_mount_ro
           }
         }
         volume {
           name = var.tertiary_volume_name
           persistent_volume_claim {
-          claim_name = var.tertiary_pvc_claim_name
+            claim_name = var.tertiary_pvc_claim_name
+            read_only = var.tertiary_mount_ro
           }
         }
       }
