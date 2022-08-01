@@ -75,10 +75,10 @@ resource "kubernetes_deployment" "default" {
             mount_path = var.secondary_mount_path
             sub_path = var.secondary_sub_path
           }
-#          volume_mount {
-#            name = var.tertiary_volume_name
-#            mount_path = var.tertiary_mount_path
-#          }
+          volume_mount {
+            name = var.tertiary_volume_name
+            mount_path = var.tertiary_mount_path
+          }
 
           command = var.command
         }
@@ -95,12 +95,12 @@ resource "kubernetes_deployment" "default" {
           claim_name = var.secondary_pvc_claim_name
           }
         }
-#        volume {
-#          name = var.tertiary_volume_name
-#          persistent_volume_claim {
-#          claim_name = var.tertiary_pvc_claim_name
-#          }
-#        }
+        volume {
+          name = var.tertiary_volume_name
+          persistent_volume_claim {
+          claim_name = var.tertiary_pvc_claim_name
+          }
+        }
       }
     }
   }
