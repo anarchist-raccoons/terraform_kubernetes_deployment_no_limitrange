@@ -15,23 +15,23 @@ variable "command" {
   default = []
 }
 
-variable "primary_mount_path" {
-}
-variable "secondary_mount_path" {
-}
-variable "secondary_volume_name" {
-  default = ""
+variable "primary_mount_path" {}
+variable "primary_mount_ro" {
+  default = false
 }
 
-variable "secondary_sub_path" {
-  default = ""
+
+variable "secondary_mount_path" {}
+variable "secondary_volume_name" {}
+variable "secondary_sub_path" {}
+variable "secondary_mount_ro" {
+  default = false
 }
 
-variable "tertiary_mount_path" {
-  default = ""
-}
-variable "tertiary_volume_name" {
-  default = ""
+variable "tertiary_mount_path" {}
+variable "tertiary_volume_name" {}
+variable "tertiary_mount_ro" {
+  default = false
 }
 
 variable "image_pull_secrets" {
