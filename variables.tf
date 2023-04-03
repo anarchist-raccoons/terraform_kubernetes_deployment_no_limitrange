@@ -16,37 +16,22 @@ variable "command" {
 }
 
 variable "primary_mount_path" {
-  default = ""
 }
-variable "primary_mount_ro" {
-  type    = bool
-  default = false
-}
-
-
 variable "secondary_mount_path" {
-  default = ""
 }
 variable "secondary_volume_name" {
   default = ""
 }
+
 variable "secondary_sub_path" {
   default = ""
 }
-variable "secondary_mount_ro" {
-  type    = bool
-  default = false
-}
 
 variable "tertiary_mount_path" {
-    default = ""
+  default = ""
 }
 variable "tertiary_volume_name" {
   default = ""
-}
-variable "tertiary_mount_ro" {
-  type    = bool
-  default = false
 }
 
 variable "image_pull_secrets" {
@@ -54,7 +39,7 @@ variable "image_pull_secrets" {
 
 variable "resource_version" {
   description = "Unused variable, used to create a dependency sequence."
-  type = list
+  type = "list"
   default = []
 }
 
@@ -71,7 +56,7 @@ variable "replicas" {
 }
 
 variable "load_balancer_source_ranges" {
-  type = list
+  type = "list"
   default = []
 }
 
@@ -86,23 +71,3 @@ variable "load_balancer_ip" {
 variable "node_selector_label" {
   default = ""
 }
-
-variable "fqdn" {
-  default = ""
-}
-
-variable "startup" {
-  type    = bool
-  default = false
-}
-
-variable "secondary_mount" {
-  type    = bool
-  default = false
-}
-
-variable "tertiary_mount" {
-  type    = bool
-  default = false
-}
-
