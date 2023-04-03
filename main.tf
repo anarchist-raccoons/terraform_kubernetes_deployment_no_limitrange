@@ -1,5 +1,5 @@
 provider "kubernetes" {
-#  load_config_file = false
+  load_config_file = false
   host = "${var.host}"
   username = "${var.username}"
   password = "${var.password}"
