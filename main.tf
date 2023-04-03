@@ -47,7 +47,7 @@ resource "kubernetes_deployment" "default" {
 #         period_seconds        = 30
 #       }
         
-        node_selector = { app_group = "${var.node_selector_label}" }
+#        node_selector = { app_group = "${var.node_selector_label}" }
                 
         container {
           image = "${var.docker_image}"
