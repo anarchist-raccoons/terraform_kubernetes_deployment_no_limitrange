@@ -50,7 +50,7 @@ resource "kubernetes_deployment" "default" {
           }
 
           security_context {
-            allow_privilege_escalation = false
+            allow_privilege_escalation = var.allow_privilege_escalation
             privileged = var.privileged
           }
 
