@@ -111,6 +111,11 @@ variable "privileged" {
   default = false
 }
 
+variable "allow_privilege_escalation" {
+  type    = bool
+  default = false
+}
+
 variable "available_externally" {
   type    = bool
   default = false
