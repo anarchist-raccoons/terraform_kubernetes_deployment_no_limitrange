@@ -40,7 +40,8 @@ resource "kubernetes_deployment" "default" {
         
         node_selector = { app_group = var.node_selector_label }
 
-        security_context {          
+        security_context {
+          allow_privilege_escalation = true
           privileged = false 
         }
 
