@@ -158,7 +158,7 @@ resource "kubernetes_service" "default" {
         target_port = var.secondary_port
       }
     
-      load_balancer_ip = var.load_balancer_ip == true ? 1 : 0
+      load_balancer_ip = var.load_balancer_ip
       load_balancer_source_ranges = var.load_balancer_source_ranges
 
       external_traffic_policy = "Local"
