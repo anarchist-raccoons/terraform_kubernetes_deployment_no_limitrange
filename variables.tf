@@ -105,3 +105,8 @@ variable "tertiary_mount" {
   type    = bool
   default = false
 }
+
+variable "privileged" {
+  type    = bool
+  default = false
+}
