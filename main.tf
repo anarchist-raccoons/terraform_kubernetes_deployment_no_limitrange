@@ -36,15 +36,8 @@ resource "kubernetes_deployment" "default" {
         image_pull_secrets { 
           name = var.image_pull_secrets
         }
-        
-        
+              
         node_selector = { app_group = var.node_selector_label }
-
-        security_context {
-          allow_privilege_escalation = true
-          privileged = false 
-        }
-
 
         container {
           image = var.docker_image
@@ -54,6 +47,10 @@ resource "kubernetes_deployment" "default" {
             secret_ref {
               name = var.env_from
             }
+          }
+
+          security_context {
+            privileged = false 
           }
 
           dynamic "startup_probe" { 
