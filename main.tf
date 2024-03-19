@@ -140,7 +140,7 @@ resource "kubernetes_service" "default" {
   }
   dynamic "spec" {
     for_each = var.available_externally ? [1] : []
-    contents {
+    content {
       selector = {
         app = kubernetes_deployment.default.metadata.0.labels.app
       }
@@ -162,6 +162,31 @@ resource "kubernetes_service" "default" {
       load_balancer_source_ranges = var.load_balancer_source_ranges
 
       external_traffic_policy = "Local"
+
+      type = var.service_type
+    }
+  }
+  dynamic "spec" {
+    for_each = var.not_available_externally ? [1] : []
+    content {
+      selector = {
+        app = kubernetes_deployment.default.metadata.0.labels.app
+      }
+      session_affinity = "ClientIP"
+    
+      port {
+        name        = "primary-port"
+        port        = var.primary_port
+        target_port = var.primary_port
+      }
+
+      port {
+        name        = "secondary-port"
+        port        = var.secondary_port
+        target_port = var.secondary_port
+      }
+    
+      #external_traffic_policy = "Local"
 
       type = var.service_type
     }
