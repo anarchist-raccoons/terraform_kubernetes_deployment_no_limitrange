@@ -156,14 +156,13 @@ resource "kubernetes_service" "default" {
       target_port = var.secondary_port
     }
 
-    dynamic "external_service" {
+    dynamic "load_balancer_ip" {
       for_each = var.external_service ? [1] : []
       content {
-        load_balancer_ip = var.load_balancer_ip
-        load_balancer_source_ranges = var.load_balancer_source_ranges
+        load_balancer_ip = var.load_balancer_ip    
       }
     }
-
+    load_balancer_source_ranges = var.load_balancer_source_ranges
     external_traffic_policy = "Local"
 
     type = var.service_type
