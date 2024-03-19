@@ -110,3 +110,13 @@ variable "privileged" {
   type    = bool
   default = false
 }
+
+variable "available_externally" {
+  type    = bool
+  default = false
+}
+
+variable "not_available_externally" {
+  type    = bool
+  default = true
+}
