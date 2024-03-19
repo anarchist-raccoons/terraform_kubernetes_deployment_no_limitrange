@@ -51,7 +51,7 @@ resource "kubernetes_deployment" "default" {
 
           security_context {
             allow_privilege_escalation = false
-            privileged = var.privilege
+            privileged = var.privileged
           }
 
           dynamic "startup_probe" { 
