@@ -161,7 +161,6 @@ resource "kubernetes_service" "default" {
       content {
         load_balancer_ip = var.load_balancer_ip
         load_balancer_source_ranges = var.load_balancer_source_ranges
-        }
       }
     }
 
