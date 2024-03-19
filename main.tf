@@ -40,7 +40,9 @@ resource "kubernetes_deployment" "default" {
         
         node_selector = { app_group = var.node_selector_label }
 
-        security_context = { privileged = var.privileged }
+        security_context { 
+          privileged = var.privileged 
+       }
 
         container {
           image = var.docker_image
