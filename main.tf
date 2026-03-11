@@ -186,7 +186,7 @@ resource "kubernetes_service" "default" {
         target_port = var.secondary_port
       }
     
-      #external_traffic_policy = "Local"
+      external_traffic_policy = "Local"
 
       type = var.service_type
     }
