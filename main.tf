@@ -187,6 +187,7 @@ resource "kubernetes_service" "default" {
       }
     
       external_traffic_policy = "Local"
+      load_balancer_source_ranges = var.load_balancer_source_ranges
 
       type = var.service_type
     }
